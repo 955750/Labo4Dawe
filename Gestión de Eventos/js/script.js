@@ -1,9 +1,16 @@
 function inicializarGestores()
 {
+
+	var reloj = setInterval(actualizarImagen, 5000);
+	var listaImagenes = ["fresas.jpg", "limon.jpg", "mandarinas.jpg", "manzanas.jpg", "melon.jpg", "sesamo.jpg"];
+	var indiceImagen = 0;
+
 	var imagen = document.getElementById("imagen");
 	imagen.onclick = function()
 	{
-		alert("Has pulsado la imagen");
+		// alert("Has pulsado la imagen");
+		clearInterval(reloj);
+		indiceImagen = 0;
 	}
 
 	var usuario = document.getElementById("usuario");
@@ -36,6 +43,14 @@ function inicializarGestores()
 		return false;
 	}
 
+	function actualizarImagen() {
+		var imagenActual = listaImagenes[indiceImagen];
+		imagen.style.backgroundImage = "url(imagenes/" + imagenActual + ")";
+		indiceImagen++
+		if (indiceImagen > 5) {
+			indiceImagen = 0;
+		}
+	}
 }
 
 window.onload = inicializarGestores;
