@@ -51,6 +51,22 @@ function inicializarGestores()
 			indiceImagen = 0;
 		}
 	}
+
+	document.addEventListener("keydown", (event) => {
+		if (event.code === "ArrowUp") {
+			alert("Has pulsado FLECHA ARRIBA")
+			event.preventDefault()
+		} else if (event.code === "ArrowDown") {
+			alert("Has pulsado FLECHA ABAJO")
+			event.preventDefault()
+		} else if (event.code === "ArrowLeft") {
+			alert("Has pulsado FLECHA IZQUIERDA")
+			event.preventDefault()
+		} else if (event.code === "ArrowRight") {
+			alert("Has pulsado FLECHA DERECHA")
+			event.preventDefault()
+		}
+	});
 }
 
 window.onload = inicializarGestores;
